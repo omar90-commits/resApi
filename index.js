@@ -3,6 +3,7 @@ const express = require('express');
 const routes = require('./routes/');
 const bodyParser = require('body-parser');
 const fileUpload = require('express-fileupload');
+const cors = require('cors');
 
 // crear el servidor
 const app = express();
@@ -13,6 +14,9 @@ app.use( fileUpload() );
 app.use( bodyParser.urlencoded({ extend: false }) );
 app.use( bodyParser.json() );
 
+// Habilitar cors
+app.use( cors() );
+
 app.use('/', routes());
 
-app.listen('3000', () => console.log('corriendo en el puerto 3000'));
+app.listen('5000', () => console.log('corriendo en el puerto 5000'));
